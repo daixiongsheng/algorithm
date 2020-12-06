@@ -13,9 +13,9 @@ using std::cout;
 class Solution {
 public:
 
-    // Solution() {
-    //     this->longestCommonPrefix({"flower","flower","flower","flower"});
-    // }
+    Solution() {
+        this->longestCommonPrefix({"flower","flower","flower","flower"});
+    }
 
     string longestCommonPrefix(vector<string> strs) {
         int minLength = 0;
