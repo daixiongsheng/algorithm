@@ -16,7 +16,14 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        
+        // 让两个指针走相同的距离
+        ListNode *p = headA;
+        ListNode *q = headB;
+        while (q != p) {
+            p = p ? p->next : headB;
+            q = q ? q->next : headA;
+        }
+        return q;
     }
 };
 // @lc code=end
