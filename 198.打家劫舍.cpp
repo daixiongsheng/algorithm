@@ -7,18 +7,23 @@
 // @lc code=start
 class Solution {
 public:
-    int rob(vector<int>& nums) {
-        int a = 0, b = 0;
+    int rob(vector<int> &nums) {
         int n = nums.size();
-        for(int i = 0; i < n - 1; i+= 2) {
-            a += nums[i];
-            b += nums[i+1];
+        if (n == 0)
+            return n;
+        if (n == 1) {
+            return nums[0];
         }
-        if(n % 2) {
-            a += nums[n - 1];
+        if (n == 2) {
+            return max(nums[0], nums[1]);
         }
-        return a > b ? a : b;
+        map<int, int> m;
+        m[0] = nums[0];
+        m[1] = max(nums[0], nums[1]);
+        for (int i = 2; i < n; i++) {
+            m[i] = max(m[i - 2] + nums[i], m[i - 1]);
+        }
+        return max(m[n - 1], m[n - 2]);
     }
 };
 // @lc code=end
-
