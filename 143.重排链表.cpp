@@ -9,7 +9,7 @@
 #include "iostream"
 #include "vector"
 #include "map"
-/*
+
 using namespace std;
 // Definition for singly-linked list.
 struct ListNode {
@@ -18,7 +18,7 @@ struct ListNode {
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
-}; */
+};
 
 class Solution {
 public:
@@ -76,7 +76,7 @@ public:
 
 };
 // @lc code=end
-/*
+
 int main() {
     Solution s;
     ListNode l5(5);
@@ -85,4 +85,4 @@ int main() {
     ListNode l2(2, &l3);
     ListNode l1(1, &l2);
     s.reorderList(&l1);
-} */
+}
