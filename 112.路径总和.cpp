@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=100 lang=cpp
+ * @lc app=leetcode.cn id=112 lang=cpp
  *
- * [100] 相同的树
+ * [112] 路径总和
  */
 
 // @lc code=start
@@ -19,18 +19,22 @@
  */
 class Solution {
   public:
-    bool isSameTree(TreeNode *p, TreeNode *q) {
-        if(!p && !q) {
-            return true;
-        }
-        if((!p && q) || (p && !q)) {
+    bool hasPathSum(TreeNode *root, int targetSum) {
+        if (!root)
             return false;
+        if (!root->left && !root->right)
+            return root->val == targetSum;
+
+        int n = targetSum - root->val;
+        if (root->right) {
+            bool b = hasPathSum(root->right, n);
+            if (b)
+                return b;
         }
-        if(p->val != q->val) {
-            return false;
-        }
-        if(isSameTree(p->left, q->left)) {
-            return isSameTree(p->right, q->right);
+        if (root->left) {
+            bool b = hasPathSum(root->left, n);
+            if (b)
+                return b;
         }
         return false;
     }
