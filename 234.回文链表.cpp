@@ -16,18 +16,26 @@
  * };
  */
 class Solution {
+  private:
+    ListNode *frontPointer;
+
   public:
     bool isPalindrome(ListNode *head) {
-        if (!head || !head->next)
-            return true;
-        long double s1 = 0, s2 = 0, t = 1;
-        while (head) {
-            s1 = s1 * 10 + head->val;
-            s2 = s2 + t * head->val;
-            t *= 10;
-            head = head->next;
+        frontPointer = head;
+        return check(head);
+    }
+
+    bool check(ListNode *current) {
+        if (current) {
+            if (!check(current->next)) {
+                return false;
+            };
+            if (current->val != frontPointer->val) {
+                return false;
+            }
+            frontPointer = frontPointer->next;
         }
-        return s1 == s2;
+        return true;
     }
 };
 // @lc code=end
