@@ -17,6 +17,7 @@ class Solution {
     int numTrees(int n) {
         bool b = n % 2;
         int mid = n / 2 + b;
+        return 0;
     }
 };
 // @lc code=end
