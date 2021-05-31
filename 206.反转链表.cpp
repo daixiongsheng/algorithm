@@ -17,22 +17,22 @@
  */
 class Solution {
 public:
-    ListNode *reverseList(ListNode *head) {
-        if (!head || !head->next)
+    ListNode* reverseList(ListNode* head) {
+        if(!head || !head->next) {
             return head;
-        ListNode *cur = head;
-        ListNode *next = head->next;
-        cur -> next = NULL;
-        ListNode *p = cur->next, *q = next->next;
-        while (next) {
-            cur->next = p;
-            q = next->next;
-            next->next = cur;
-            p = cur;
-            cur = next;
-            next = q;
         }
-        return cur;
+        ListNode *pre, *current = head, *next = head->next, *nextNext;
+        current-> next = nullptr;
+        pre = current->next;
+        while(next) {
+            current -> next = pre;
+            pre = current;
+            nextNext = next->next;
+            next->next = current;
+            current = next;
+            next = nextNext;
+        }
+        return current;
     }
 };
 // @lc code=end

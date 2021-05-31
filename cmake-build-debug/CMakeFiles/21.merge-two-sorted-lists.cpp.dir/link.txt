@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/21.merge-two-sorted-lists.cpp.dir/35.search-insert-position.cpp.o  -o 21.merge-two-sorted-lists.cpp 

@@ -1,5 +1,0 @@
-/Users/bjhl/Documents/project/cpp/leetcode/cmake-build-debug/CMakeFiles/21.merge-two-sorted-lists.dir
-/Users/bjhl/Documents/project/cpp/leetcode/cmake-build-debug/CMakeFiles/35.search-insert-position.dir
-/Users/bjhl/Documents/project/cpp/leetcode/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/bjhl/Documents/project/cpp/leetcode/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/bjhl/Documents/project/cpp/leetcode/cmake-build-debug/CMakeFiles/leetcode.dir
