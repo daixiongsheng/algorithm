@@ -5,38 +5,40 @@
  */
 
 // @lc code=start
-func findKthLargest(nums []int, k int) int {
-	size, low := len(nums), 0
-	high := size - 1
 
-	swap := func(nums []int, low, high int) {
-		tp := nums[low]
-		nums[low] = nums[high]
-		nums[high] = tp
-	}
 
-	partition := func(nums []int, low , high int) int {
-		p := nums[low]
-		j := low
-		for i:= low + 1; i <= high;i++ {
-			if nums[i] > p {
-				j++
-				swap(nums, j ,i)
-			}
+func findKthLargest(arr []int, k int) int {
+	var heapify func(arr []int, index , size int)
+	heapify = func(arr []int, index ,size int) {
+		left, right:= index*2 + 1,index*2 + 2
+		max := index
+		if left < size && arr[left] > arr[index] {
+			max = left
 		}
-		swap(nums, j ,low)
-		return j
-	}
-	for {
-		index := partition(nums, low, high)
-		if index == k - 1 {
-			return nums[index]
-		} else if index < k - 1 {
-			low = index + 1
-		} else {
-			high = index - 1
+		if right < size && arr[right] > arr[max] {
+			max = right
+		}
+		// 找到左右子树中最大的一个进行交换
+		if max != index {
+			arr[index], arr[max] = arr[max], arr[index]
+			heapify(arr, max, size)
 		}
 	}
+
+	var buildHeap = func(arr []int) {
+		size := len(arr)
+		for i :=  size / 2; i >= 0; i-- {
+			heapify(arr, i, size)
+		}
+	}
+	size := len(arr)
+	buildHeap(arr)
+	for i := size - 1; i >= len(arr) - k + 1; i-- {
+		arr[0], arr[i] = arr[i],arr[0]
+		size--
+		heapify(arr, 0, size)
+	}
+	return arr[0];
 }
 // @lc code=end
 
