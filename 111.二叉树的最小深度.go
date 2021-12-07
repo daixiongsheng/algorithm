@@ -14,33 +14,30 @@
  * }
  */
 
- func minDepth(root *TreeNode) int {
+
+func minDepth(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	var Min = func(a, b int) int {
-		if a > b {
-			return b
+	dep, q := 1, []*TreeNode{root}
+	for len(q) > 0 {
+		sz := len(q)
+		for i := 0; i < sz; i++ {
+			cur := q[i]
+			if cur.Left == nil && cur.Right == nil {
+				return dep
+			}
+			if cur.Left != nil {
+				q = append(q, cur.Left)
+			}
+			if cur.Right != nil {
+				q = append(q, cur.Right)
+			}
 		}
-		return a
+		q=q[sz:]
+		dep++
 	}
-	var bfs func(root *TreeNode) int
-	bfs = func(root *TreeNode) int {
-		if root == nil {
-			return 0
-		}
-		if root.Left == nil && root.Right == nil {
-			return 1
-		}
-		if root.Left == nil {
-			return 1 + bfs(root.Right)
-		}
-		if root.Right == nil {
-			return 1 + bfs(root.Left)
-		}
-		return 1 + Min(bfs(root.Left), bfs(root.Right))
-	}
-	return bfs(root)
+	return dep
 }
 // @lc code=end
 
