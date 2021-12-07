@@ -5,7 +5,7 @@
  */
 // @lc code=start
 
-func lengthOfLongestSubstring(s string) int {
+func lengthOfLongestSubstring2(s string) int {
 	i, j, size := 0, 1, len(s)
 	if size == 0 {
 		return 0
@@ -44,5 +44,30 @@ func lengthOfLongestSubstring(s string) int {
 	return max(m, j - i)
 }
 
+
+func lengthOfLongestSubstring(s string) int {
+	window := map[uint8]int{}
+	var ret int
+	left, right := 0, 0
+	var max = func(a, b int) int {
+		if a < b {
+			return b
+		}
+		return a
+	}
+	lens := len(s)
+	for right < lens {
+		c := s[right]
+		right++
+		window[c]++
+		for window[c] > 1 {
+			d := s[left]
+			left++
+			window[d]--
+		}
+		ret = max(ret, right-left)
+	}
+	return ret
+}
 // @lc code=end
 
