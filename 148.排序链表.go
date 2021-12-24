@@ -13,7 +13,6 @@
  * }
  */
 
-
  func sortList(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
@@ -25,31 +24,39 @@
 		temp = temp.Next
 	}
 	temp = &ListNode{-1, head}
-	for subL := 1; subL < l; subL++ {
+	for subL := 1; subL < l; subL <<= 1 {
 		pre, cur := temp, temp.Next
 		for cur != nil {
 			head1 := cur
-			for i := 0; i < subL; i++ {
+			for i := 1; i < subL && cur.Next != nil; i++ {
 				cur = cur.Next
 			}
+
 			head2 := cur.Next
 			cur.Next = nil
 			cur = head2
 
-			for i := 0; i < subL && cur != nil && cur.Next != nil; i++ {
+			for i := 1; i < subL && cur != nil && cur.Next != nil; i++ {
 				cur = cur.Next
 			}
+
 			var next *ListNode
 			if cur != nil {
 				next = cur.Next
 				cur.Next = nil
 			}
 			cur = next
+
 			pre.Next = merge(head1, head2)
+
+			for pre.Next != nil {
+				pre = pre.Next
+			}
 		}
 	}
 	return temp.Next
 }
+
 func merge(a1 *ListNode, a2 *ListNode) *ListNode {
 	t1, t2 := a1, a2
 	head := &ListNode{}
