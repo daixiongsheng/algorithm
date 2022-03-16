@@ -4,15 +4,15 @@
  * [1283] 使结果不超过阈值的最小除数
  */
 
-package main
+// package main
 
-func main() {
-	var nums = []int {21212,10101,12121}
-	smallestDivisor(nums, 1000000)
-}
+// func main() {
+// 	var nums = []int {21212,10101,12121}
+// 	smallestDivisor(nums, 1000000)
+// }
 // @lc code=start
 func smallestDivisor(nums []int, threshold int) int {
-	sum, result, max:= 0, (1 << 31) - 1, (-1 << 32)
+	sum, result, max := 0, (1<<31)-1, (-1 << 32)
 	for _, v := range nums {
 		if max < v {
 			max = v
@@ -36,7 +36,7 @@ func smallestDivisor(nums []int, threshold int) int {
 
 func getSum(nums []int, sum *int, i int) {
 	for _, v := range nums {
-		*sum += (v - 1) / i + 1
+		*sum += (v-1)/i + 1
 		//if v == v / i * i {
 		//	*sum += m
 		//} else {
@@ -44,5 +44,6 @@ func getSum(nums []int, sum *int, i int) {
 		//}
 	}
 }
+
 // @lc code=end
 
