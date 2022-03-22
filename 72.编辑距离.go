@@ -3,7 +3,6 @@
  *
  * [72] 编辑距离
  */
-package main
 
 // @lc code=start
 func minDistance(word1 string, word2 string) int {

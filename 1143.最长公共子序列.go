@@ -3,11 +3,6 @@
  *
  * [1143] 最长公共子序列
  */
-package main
-
-func main() {
-	longestCommonSubsequence("abcde", "ace")
-}
 
 // @lc code=start
 func longestCommonSubsequence2(text1 string, text2 string) int {
