@@ -5,14 +5,7 @@
  */
 package main
 
-import (
-	"fmt"
-	"math"
-)
-
-func main() {
-	fmt.Println(minSteps((3)))
-}
+import "math"
 
 // @lc code=start
 func minSteps(n int) int {
