@@ -3,3 +3,4 @@
 /*.dSYM/**
 /bin
 cmake-build-debug
+*.out
