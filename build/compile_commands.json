@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/daixiongsheng/Documents/project/daixiongsheng/algorithm/build",
-  "command": "/opt/homebrew/bin/g++-11 -g -arch arm64 -std=gnu++11 -o CMakeFiles/leetcode.dir/main.cpp.o -c /Users/daixiongsheng/Documents/project/daixiongsheng/algorithm/main.cpp",
-  "file": "/Users/daixiongsheng/Documents/project/daixiongsheng/algorithm/main.cpp"
-}
-]
